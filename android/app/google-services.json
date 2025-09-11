@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1067458593795",
+    "project_id": "dwlr-project-95a3b",
+    "storage_bucket": "dwlr-project-95a3b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067458593795:android:01531b03f7acfc65123a36",
+        "android_client_info": {
+          "package_name": "app.krishLanjewar.dwrl_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTUTE_a2YYaZVzjbKsJFfSYDTyF6bBVkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

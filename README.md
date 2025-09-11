@@ -1,3 +1,4 @@
+
 # SIH-25068
 A lightweight, end-to-end system that ingests Digital Water Level Recorder (DWLR) data (live or simulated) and provides real-time visualization, alerts, and decision-support tools for policymakers, researchers, and citizens.
 # 🌊 Real-Time Groundwater Resource Evaluation (Hackathon Prototype)
@@ -91,3 +92,4 @@ npm install
 
 # Start development server
 npm start
+>>>>>>> 06e1d92bc329dfdc480dbda363cda85e5408c2de
