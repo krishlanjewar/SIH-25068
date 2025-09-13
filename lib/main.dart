@@ -1,4 +1,6 @@
-import 'package:dwrl_project/features/auth/presentation/pages/login_pages.dart';
+import 'package:dwrl_project/features/auth/presentation/pages/auth_page.dart';
+import 'package:dwrl_project/features/themes/dark_mode.dart';
+import 'package:dwrl_project/features/themes/light_mode.dart';
 import 'package:dwrl_project/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +19,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: AuthPage(),
+      theme: lightMode,
+      darkTheme: darkMode,
     );
   }
 }

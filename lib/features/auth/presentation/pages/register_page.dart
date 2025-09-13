@@ -2,25 +2,25 @@ import 'package:dwrl_project/features/auth/presentation/componentants/my_button.
 import 'package:dwrl_project/features/auth/presentation/componentants/my_textfiled.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  final void Function()? togglePages;
-  const LoginPage({super.key, this.togglePages});
+class RegisterPage extends StatefulWidget {
+   final void Function()? togglePages;
+  const RegisterPage({super.key, this.togglePages});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   // text controllers
+  final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
+final confirmPasswordController = TextEditingController();
   // BUILT UI
   @override
   Widget build(BuildContext context) {
     // scaffold
     return Scaffold(
-
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -36,11 +36,19 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 25),
               // name of app
               Text(
-                "DWLR DATA ANALYTICS APP",
+                "Let's get you started !",
                 style: TextStyle(
                   fontSize: 16,
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
+              ),
+              const SizedBox(height: 25),
+
+              // name textfield
+              MyTextfield(
+                controller: usernameController,
+                hintText: 'Username',
+                obscureText: false,
               ),
 
               const SizedBox(height: 25),
@@ -61,39 +69,35 @@ class _LoginPageState extends State<LoginPage> {
                 obscureText: true,
               ),
               const SizedBox(height: 10),
+              MyTextfield(
+                controller: confirmPasswordController,
+                hintText: 'Confirm Password',
+                obscureText: true,
+              ),
 
-              // forgot pw
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "Forgot Password?",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontWeight: FontWeight.bold,
-                    ), 
-                  ), 
-                ],
-              ), 
-              const SizedBox(height: 25),
+              const SizedBox(height: 10),
 
-              // login button
-              MyButton(onTap: () {}, text: "login"),
-
+              // Register button
+              MyButton(onTap: () {}, text: "Sign Up"),
+              const SizedBox(height: 25),         
+              // already a member? login now
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't have an account?",
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                      ),
+                  Text(
+                    "Already have an account?",
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                  ),
                   GestureDetector(
-                    onTap: widget.togglePages,
-                    child: Text("Register now?",
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                    onTap: () {
+                      // Navigate to login page
+                      widget.togglePages!();
+                    },
+                    child: Text(
+                      "Login now !",
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
                 ],
