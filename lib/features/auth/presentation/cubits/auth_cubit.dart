@@ -51,7 +51,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
 // register user with email and password and name
-Future<void> register(String email, String password) async {
+Future<void> register(String email, String password, {required String name}) async {
    
     try {
        emit(AuthLoading());

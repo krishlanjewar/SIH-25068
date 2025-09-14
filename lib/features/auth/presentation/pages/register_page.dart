@@ -1,9 +1,11 @@
 import 'package:dwrl_project/features/auth/presentation/componentants/my_button.dart';
 import 'package:dwrl_project/features/auth/presentation/componentants/my_textfiled.dart';
+import 'package:dwrl_project/features/auth/presentation/cubits/auth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterPage extends StatefulWidget {
-   final void Function()? togglePages;
+  final void Function()? togglePages;
   const RegisterPage({super.key, this.togglePages});
 
   @override
@@ -12,10 +14,52 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   // text controllers
-  final usernameController = TextEditingController();
+  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-final confirmPasswordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+
+  // register user button method
+  void register() {
+    //  prepare info
+    final String name = nameController.text;
+    final String email = emailController.text;
+    final String password = passwordController.text;
+    final String confirmPassword = confirmPasswordController.text;
+
+    // add auth method here
+    final authCubit = context.read<AuthCubit>();
+    // ensuring fields are not empty
+    if (name.isNotEmpty && email.isNotEmpty && password.isNotEmpty) {
+    //  ensuring passwords match
+      if (password == confirmPassword) {
+        authCubit.register(email, password, name: name);
+      } else {
+        // show error pw dont match
+        ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Passwords do not match!!!")
+          ),
+        );
+      }
+    } else {
+      // show error fields are empty
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("fields cannot be empty!!!")
+          ),
+        );
+        }
+  }
+
+  @override
+  void dispose() {
+    // Clean up controllers
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+
   // BUILT UI
   @override
   Widget build(BuildContext context) {
@@ -46,7 +90,7 @@ final confirmPasswordController = TextEditingController();
 
               // name textfield
               MyTextfield(
-                controller: usernameController,
+                controller: nameController,
                 hintText: 'Username',
                 obscureText: false,
               ),
@@ -78,8 +122,8 @@ final confirmPasswordController = TextEditingController();
               const SizedBox(height: 10),
 
               // Register button
-              MyButton(onTap: () {}, text: "Sign Up"),
-              const SizedBox(height: 25),         
+              MyButton(onTap: register, text: "Sign Up"),
+              const SizedBox(height: 25),
               // already a member? login now
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
