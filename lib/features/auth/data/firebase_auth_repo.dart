@@ -99,4 +99,10 @@ class FirebaseAuthRepo implements AuthRepo {
       return "Failed to send password reset email: $e";
     }
   }
+  
+  @override
+  Future<AppUser?> signInWithGoogle() {
+    // TODO: implement signInWithGoogle
+    throw UnimplementedError();
+  }
 }

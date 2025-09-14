@@ -88,87 +88,89 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     // scaffold
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // logo
-              Icon(
-                Icons.lock_open,
-                size: 80,
-                color: Theme.of(context).colorScheme.primary,
-              ), // Icon
-              const SizedBox(height: 25),
-              // name of app
-              Text(
-                "DWLR DATA ANALYTICS APP",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Theme.of(context).colorScheme.inversePrimary,
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // logo
+                Icon(
+                  Icons.lock_open,
+                  size: 80,
+                  color: Theme.of(context).colorScheme.primary,
+                ), // Icon
+                const SizedBox(height: 25),
+                // name of app
+                Text(
+                  "DWLR DATA ANALYTICS APP",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
                 ),
-              ),
-
-              const SizedBox(height: 25),
-
-              // email textfield
-              MyTextfield(
-                controller: emailController,
-                hintText: 'Email',
-                obscureText: false,
-              ),
-
-              const SizedBox(height: 10),
-
-              // pw textfield
-              MyTextfield(
-                controller: passwordController,
-                hintText: 'Password',
-                obscureText: true,
-              ),
-              const SizedBox(height: 10),
-
-              // forgot pw
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  GestureDetector(
-                    onTap:() => openForgotPasswordBox(),
-                    child: Text(
-                      "Forgot Password?",
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary,
-                        fontWeight: FontWeight.bold,
+        
+                const SizedBox(height: 25),
+        
+                // email textfield
+                MyTextfield(
+                  controller: emailController,
+                  hintText: 'Email',
+                  obscureText: false,
+                ),
+        
+                const SizedBox(height: 10),
+        
+                // pw textfield
+                MyTextfield(
+                  controller: passwordController,
+                  hintText: 'Password',
+                  obscureText: true,
+                ),
+                const SizedBox(height: 10),
+        
+                // forgot pw
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    GestureDetector(
+                      onTap:() => openForgotPasswordBox(),
+                      child: Text(
+                        "Forgot Password?",
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.primary,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 25),
-
-              // login button
-              MyButton(onTap: login, text: "login"),
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account?",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.primary,
+                  ],
+                ),
+                const SizedBox(height: 25),
+        
+                // login button
+                MyButton(onTap: login, text: "login"),
+                const SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don't have an account?",
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
                     ),
-                  ),
-                  GestureDetector(
-                    onTap: widget.togglePages,
-                    child: Text(
-                      "Register now?",
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    GestureDetector(
+                      onTap: widget.togglePages,
+                      child: Text(
+                        "Register now?",
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
