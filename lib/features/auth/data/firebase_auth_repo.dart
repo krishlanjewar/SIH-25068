@@ -94,9 +94,15 @@ class FirebaseAuthRepo implements AuthRepo {
   Future<String> sendPasswordResetEmail(String email) async {
     try {
      await firebaseAuth.sendPasswordResetEmail(email: email);
-      return Future.value('Password reset email sent');
+      return "Password reset email sent ! check inbox";
     } catch (e) {
-      throw Exception('Failed to send password reset email: $e');
+      return "Failed to send password reset email: $e";
     }
+  }
+  
+  @override
+  Future<AppUser?> signInWithGoogle() {
+    // TODO: implement signInWithGoogle
+    throw UnimplementedError();
   }
 }

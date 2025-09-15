@@ -2,7 +2,10 @@ class AppUser {
   final String uid;
   final String email;
 
-  AppUser({required this.email, required this.uid});
+  AppUser({
+    required this.email,
+     required this.uid,
+     });
   // convert json ==> app user
   Map<String, dynamic> toJson() {
     return {'uid': uid, 'email': email};
