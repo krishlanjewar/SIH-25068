@@ -3,7 +3,13 @@ import 'package:dwrl_project/features/auth/presentation/componentants/my_loading
 import 'package:dwrl_project/features/auth/presentation/cubits/auth_cubit.dart';
 import 'package:dwrl_project/features/auth/presentation/cubits/auth_states.dart';
 import 'package:dwrl_project/features/auth/presentation/pages/auth_page.dart';
+import 'package:dwrl_project/features/home/presentation/pages/profession_page.dart';
 import 'package:dwrl_project/features/home/presentation/pages/home_page.dart';
+import 'package:dwrl_project/features/home/presentation/pages/profile_page.dart';
+import 'package:dwrl_project/features/home/presentation/pages/setting_page.dart';
+import 'package:dwrl_project/features/home/presentation/report/report.dart';
+import 'package:dwrl_project/features/location/location.dart';
+import 'package:dwrl_project/features/map/map.dart';
 import 'package:dwrl_project/features/themes/dark_mode.dart';
 import 'package:dwrl_project/features/themes/light_mode.dart';
 import 'package:dwrl_project/firebase_options.dart';
@@ -43,28 +49,39 @@ class MyApp extends StatelessWidget {
         theme: lightMode,
         darkTheme: darkMode,
         themeMode: ThemeMode.system,
-        home: BlocConsumer<AuthCubit, AuthState>(
-          builder: (context, state) {
-            // if unauthenticated show auth page
-            if (state is Unauthenticated) {
-              return AuthPage();
-            }
-            // if authenticated show home page
-            if (state is Authenticated) {
-              return const HomePage();
-            }
-            // loading state
-            return const LoadingScreen();
-          },
-          listener: (context, state) {
-            // listen for auth state changes
-            if (state is AuthError) {
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(SnackBar(content: Text(state.message)));
-            }
-          },
-        ),
+        home: HomePage(),
+      
+        // home: BlocConsumer<AuthCubit, AuthState>(
+        //   builder: (context, state) {
+        //     // if unauthenticated show auth page
+        //     if (state is Unauthenticated) {
+        //       return AuthPage();
+        //     }
+        //     // if authenticated show home page
+        //     if (state is Authenticated) {
+        //       return const HomePage();
+        //     }
+        //     // loading state
+        //     return const LoadingScreen();
+        //   },
+        //   listener: (context, state) {
+        //     // listen for auth state changes
+        //     if (state is AuthError) {
+        //       ScaffoldMessenger.of(
+        //         context,
+        //       ).showSnackBar(SnackBar(content: Text(state.message)));
+        //     }
+        //   },
+        // ),
+        routes: {
+        '/home': (context) => HomePage(),
+        '/setting': (context) => SettingPage(),
+        '/profile': (context) => ProfilePage(),
+        '/map':(context)=> MapPage(),
+        '/loc':(context)=> LocationPage(),
+        '/profession':(context)=> ProfessionPage(),
+        '/complaint':(context)=> ComplaintPage(),
+        },
       ),
     );
   }
