@@ -45,7 +45,7 @@ class _ProfessionPageState extends State<ProfessionPage> {
         title: const Text("Select Your Profile"),
         backgroundColor: const Color(0xFF0D47A1),
       ),
-      backgroundColor: const Color(0xFFF4F6F8),
+      // backgroundColor: const Color(0xFFF4F6F8),
       body: GridView.count(
         crossAxisCount: 2,
         padding: const EdgeInsets.all(16.0),

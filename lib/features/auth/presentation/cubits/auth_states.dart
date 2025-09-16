@@ -2,7 +2,9 @@
 
 import 'package:dwrl_project/features/auth/domain/entities/app_user.dart';
 
-abstract class AuthState {}
+abstract class AuthState {
+  get user => null;
+}
 
 // initial state
 class AuthInitial extends AuthState {}

@@ -19,7 +19,7 @@ class ProfilePage extends StatelessWidget {
         title: const Text('My Profile'),
         backgroundColor: const Color(0xFF0D47A1), // Consistent app bar color
       ),
-      backgroundColor: const Color(0xFFF4F6F8), // Consistent background color
+      // backgroundColor: const Color(0xFFF4F6F8), // Consistent background color
       body: SingleChildScrollView(
         child: Column(
           children: [

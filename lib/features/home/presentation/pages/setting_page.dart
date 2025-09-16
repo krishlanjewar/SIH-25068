@@ -24,7 +24,7 @@ class _SettingPageState extends State<SettingPage> {
         title: const Text('Settings'),
         backgroundColor: const Color(0xFF0D47A1), // Consistent app bar color
       ),
-      backgroundColor: const Color(0xFFF4F6F8), // Consistent background color
+      // backgroundColor: const Color(0xFFF4F6F8), // Consistent background color
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [

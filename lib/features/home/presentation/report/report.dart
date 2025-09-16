@@ -116,7 +116,7 @@ class _ComplaintPageState extends State<ComplaintPage> {
         title: const Text('File a Complaint'),
         backgroundColor: const Color(0xFF0D47A1),
       ),
-      backgroundColor: const Color(0xFFF4F6F8),
+      // backgroundColor: const Color(0xFFF4F6F8),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Form(
